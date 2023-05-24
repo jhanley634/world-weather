@@ -159,10 +159,7 @@ def world_weather():
     def get_weather():
         """ Connect to API, get data and update tkinter labels """
         # If textfield empty use user current location based on IP address
-        if len(textfield.get()) > 0:
-            location = textfield.get()
-        else:
-            location = get_user_location()
+        location = textfield.get() if len(textfield.get()) > 0 else get_user_location()
         # Weather data flow
         try:
             current_data = get_current_weather(api_key, location)
